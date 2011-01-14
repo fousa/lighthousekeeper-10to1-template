@@ -3,6 +3,8 @@
 
 Here you can find a screenshot of the 10to1 Lighthousekeeper screenshot.
 
+![Screenshot Theme](https://github.com/fousa/lighthousekeeper-10to1-template/raw/master/10to1.lhktheme/screenshot.png)
+
 How to install
 --------------
 
