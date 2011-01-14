@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>untitled</title>
+	<style>
+    body { background-color: #222; font: normal normal normal 13px/20px 'Lucida Grande', Lucida, Verdana, sans-serif; text-shadow: #111 0px 0px 1px; }
+    h1 { margin-left: 250px; color: #CCC; font: normal normal normal 40px/40px 'Lucida Grande', Lucida, Verdana, sans-serif; text-shadow: #111 0px 0px 1px; }
+    img { margin: 10px 20px 10px 40px; }
+    .statebar { margin-left: 250px; color: #666; font: normal normal normal 25px 'Lucida Grande', Lucida, Verdana, sans-serif; text-shadow: #111 0px 0px 1px; }
+    #info { float: left; margin: 20px 20px 10px 0px; }
+    p, .tag { color: #CCC; font: normal normal normal 17px 'Lucida Grande', Lucida, Verdana, sans-serif; text-shadow: #111 0px 0px 1px; }
+    .label { color: #666; }
+    #details { margin-left: 250px; text-align: left; }
+    h2 { color: #666; font: normal normal normal 17px 'Lucida Grande', Lucida, Verdana, sans-serif; text-shadow: #111 0px 0px 1px; }
+    .comment { margin-left: 20px; }
+    a { color: #74B229; font-size: 17px; text-transform: uppercase; }
+    ul { padding: 0 0 0 10px; border: 1px solid #333; border-bottom-left-radius: 5px 5px; border-bottom-right-radius: 5px 5px; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; line-height: 19px; width: 220px; list-style: none; font-size: 1em; }
+    ul li:first-child { border: 0px; }
+    ul li { border-top: 1px solid #333; height: 40px; padding: 9px 0px 9px 0px; }
+    strong { color: white; display: block; }
+    em { color: #999; font-family: 'Lucida Sans'; }
+    h3 { color: white; font-size: 18px; font-weight: normal; line-height: 20px; margin-left: 20px; }
+    .tags li { height: 20px; }
+	</style>
+</head>
+
+<body>
+  <div style="display:table; width:100%">
+    <div id="info">
+      <img src="logo.png" alt="10to1 Logo" />
+      {if tags}
+        <h3>Tags</h3>
+        <ul class="tags">
+          {tags}
+          <li><em>{tag}</em></li>
+          {/tags}
+        </ul>
+      {endif}
+      <h3>Details</h3>
+      <ul>
+        <li><em>reported by:</em><strong>{reportedBy}</strong></li>
+        <li><em>assigned to:</em><strong>{if assignedTo}{assignedTo}{else}No-one{endif}</strong></li>
+        <li><em>milestone:</em><strong>{if milestone}{milestone}{else}None{endif}</strong></li>
+        <li><em>updated at:</em><strong>{updatedAt format=MMM dd, y @ h:mma}</strong></li>
+        <li><em>created at:</em><strong>{createdAt format=MMM dd, y @ h:mma}</strong></li>
+      </ul>
+
+    </div>
+
+    <h1>{title}</h1>
+    <p class="statebar"><span class="number">{number}</span> ~ <span>{state}</span></p>
+
+    <div id="details">
+      {if body}
+      <div id="body">
+        {body}
+      </div>
+      {endif}
+
+      {if history}
+      {history}
+      {if comment}
+      <div class="comment">
+        <h2>{posterName} said:<span>{date format=dd MMM} @ {date format=h:mma}</span</h2>
+        <div class="commentbody">
+          {comment}
+        </div>
+      </div>
+      {endif}
+      {if changes}
+      <div class="comment">
+        <h2>{posterName} updated <span>{date format=dd MMM} @ {date format=h:mma}</span></h2>
+        <p>{changes}{change}<br/>{/changes}</p>
+      </div>
+      {endif}
+      {/history}
+      {else}
+
+      {endif}
+    </div>
+  </div>
+
+</body>
+</html>
